@@ -1,4 +1,4 @@
-import { getInitials } from '../helpers'
+import { getInitials } from '../util/helpers'
 
 type Props = {
   src?: string
