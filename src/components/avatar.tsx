@@ -1,18 +1,18 @@
 import { getInitials } from '../helpers'
 
 type Props = {
+  src?: string
   size?: number
-  image?: string
   children?: React.ReactNode
 }
 
-export default ({ size = 38, image, children }: Props) => {
+export default ({ src, size = 38, children }: Props) => {
   const string = children ? children.toString() : ''
   const text = string.split(' ').length > 1 ? getInitials(string) : string[0]
 
   return (
-    <div style={{ backgroundImage: image ? `url(${image})` : '' }}>
-      {!image && text}
+    <div style={{ backgroundImage: src ? `url(${src})` : '' }}>
+      {!src && text}
 
       <style jsx>{`
         div {
@@ -25,7 +25,6 @@ export default ({ size = 38, image, children }: Props) => {
           letter-spacing: 0.035em;
           background-color: var(--accent);
           background-size: cover;
-          background-position: center -5px;
           background-repeat: no-repeat;
           border-radius: 50%;
           box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
