@@ -10,7 +10,7 @@ type Props = {
 const Page = ({ title, children }: Props) => (
   <>
     <Head>
-      <title>{title ? `WebApp | ${title}` : 'WebApp'}</title>
+      <title>{title ? `Grapefruit | ${title}` : 'Grapefruit'}</title>
     </Head>
 
     <Appbar />
