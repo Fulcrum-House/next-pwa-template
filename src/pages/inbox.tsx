@@ -2,14 +2,14 @@ import Page from '../components/page'
 import Section from '../components/section'
 import FakeList from '../components/fake-list'
 
-const Tasks = () => (
-  <Page title='Tasks'>
+const Inbox = () => (
+  <Page title='Inbox'>
     <Section>
-      <h2>Tasks</h2>
+      <h2>Inbox</h2>
     </Section>
 
     <FakeList />
   </Page>
 )
 
-export default Tasks
+export default Inbox

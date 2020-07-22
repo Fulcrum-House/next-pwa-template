@@ -1,6 +1,10 @@
 import Page from '../components/page'
 import Section from '../components/section'
-import FakeList from '../components/fake-list'
+
+function handleSubmit(event) {
+  event.preventDefault()
+  // todo
+}
 
 const Profile = () => (
   <Page title='Profile'>
@@ -8,7 +12,12 @@ const Profile = () => (
       <h2>Profile</h2>
     </Section>
 
-    <FakeList />
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <input type='name' />
+      <input type='email' />
+
+      <button type='submit'>Update profile</button>
+    </form>
   </Page>
 )
 
