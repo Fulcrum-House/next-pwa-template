@@ -5,30 +5,39 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #fa8072;
-  --color-fg: #fff;
-  --color-fg-muted: #777;
-  --color-surface: #282828;
-  --color-overflow: #efefef;
-  --color-base: #101010;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-  --transition-colors: color 50ms ease-in-out,
-    background-color var(--transition), border-color var(--transition);
+  --color-primary: #fbf3e6;
+  --color-fg: rgba(255, 255, 255, 0.9);
+  --color-muted: rgba(255, 255, 255, 0.65);
+  --color-inverse: #010101;
+
+  --color-ui-overlay: #383b40;
+  --color-ui-divider: #2d2f34;
+  --color-ui-surface: #27292d;
+  --color-ui-base: #1f2023;
 }
 
 :root.light {
-  --color-primary: #fa8072;
-  --color-fg: #282828;
-  --color-fg-muted: #777;
-  --color-surface: #fafafa;
-  --color-overflow: #aaa;
-  --color-base: #efefef;
+  --color-primary: #ef8a95;
+  --color-fg: #333;
+  --color-muted: rgba(0, 0, 0, 0.6);
+  --color-inverse: #efefef;
+
+  --color-ui-overlay: #efefef;
+  --color-ui-divider: #f8f8f8;
+  --color-ui-surface: #f4f7fb;
+  --color-ui-base: #fff;
 }
 
 body {
-  color: theme('colors.ui.fg');
-  background: theme('colors.ui.base');
+  color: theme('colors.fg');
+  background-color: theme('colors.ui.base');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: var(--transition-colors);
+  @apply transition-colors duration-150 ease-in-out;
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: theme('transitionTimingFunction.in-out');
 }

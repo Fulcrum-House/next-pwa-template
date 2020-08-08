@@ -2,7 +2,7 @@
 .next
 
 # Generated via NodeJS
-node_modules
+node_modules/
 
 # Generated via next-pwa package
 **/public/workbox**

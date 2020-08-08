@@ -13,16 +13,15 @@ export function getLightMode() {
   return false
 }
 
-export function toggleLightMode() {
-  const isLight = getLightMode()
-
-  if (!isLight) {
+export function toggleLightMode(value: boolean) {
+  if (value) {
     try {
       window.localStorage.setItem('light-mode', '1')
       document.querySelector('html').classList.add('light')
       window.isLight = true
     } catch (err) {
-      // todo
+      // eslint-disable-next-line no-console
+      console.log('Unable to update theme', err)
     }
   } else {
     try {
@@ -30,7 +29,8 @@ export function toggleLightMode() {
       document.querySelector('html').classList.remove('light')
       window.isLight = false
     } catch (err) {
-      // todo
+      // eslint-disable-next-line no-console
+      console.log('Unable to update theme', err)
     }
   }
 }
