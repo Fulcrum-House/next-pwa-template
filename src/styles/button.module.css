@@ -19,6 +19,11 @@
   background: theme('colors.ui.overlay');
 }
 
+.base:focus {
+  background: theme('colors.ui.overlay');
+  outline: none;
+}
+
 .icon {
   width: theme('spacing.10');
   height: theme('spacing.10');
@@ -38,4 +43,9 @@
 .icon:hover {
   color: theme('colors.fg');
   background: theme('colors.ui.overlay');
+}
+
+.icon:focus {
+  background: theme('colors.ui.overlay');
+  outline: none;
 }

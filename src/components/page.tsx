@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Appbar from './appbar'
+import AppBar from './app-bar'
+import AppDrawer from './app-drawer'
 import BottomNav from './bottom-nav'
 
 type Props = {
@@ -13,24 +14,24 @@ const Page = ({ title, children }: Props) => (
       <title>{title ? `Grapefruit | ${title}` : 'Grapefruit'}</title>
     </Head>
 
-    <Appbar />
+    <AppBar />
+    <AppDrawer className='hidden md:flex' />
 
-    <main>{children}</main>
+    <main
+      className='md:ml-64 min-h-screen text-fg transition-colors duration-150 ease-in-out'
+      style={{
+        paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
+        paddingBottom: 'calc(env(safe-area-inset-bottom) + 4rem)',
+      }}
+    >
+      <div className='mx-auto p-6 max-w-6xl'>
+        <h2 className='mb-6 text-lg font-medium'>{title}</h2>
 
-    <BottomNav />
+        {children}
+      </div>
+    </main>
 
-    <style jsx>{`
-      main {
-        margin: 0 auto;
-        padding-top: calc(env(safe-area-inset-top) + 73px);
-        padding-bottom: calc(env(safe-area-inset-bottom) + 73px);
-        max-width: 40em;
-        height: 100%;
-        min-height: 100vh;
-        background: var(--base);
-        transition: var(--transition-colors);
-      }
-    `}</style>
+    <BottomNav className='flex md:hidden' />
   </>
 )
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getLightMode, toggleLightMode } from '../util/theme'
 import button from '../styles/button.module.css'
 
-const Header = () => {
+const AppBar = () => {
   const [light, setLight] = useState(null)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Header = () => {
       className='px-6 w-full text-fg bg-ui-base border-b flex items-center justify-between fixed top-0 transition-colors duration-150 ease-in-out'
       style={{
         paddingTop: 'env(safe-area-inset-top)',
-        height: 'calc(env(safe-area-inset-top) + 72px)',
+        height: 'calc(env(safe-area-inset-top) + 5rem)',
       }}
     >
       <Link href='/'>
@@ -31,7 +31,7 @@ const Header = () => {
         </a>
       </Link>
 
-      <nav className='flex items-center'>
+      <nav className='space-x-3 flex items-center'>
         <button type='button' onClick={toggleTheme} className={button.icon}>
           <svg
             viewBox='0 0 15 15'
@@ -53,7 +53,9 @@ const Header = () => {
             )}
           </svg>
         </button>
-        <div className='mx-3 w-px h-6 bg-ui-overlay transition-colors duration-150 ease-in-out' />
+
+        <div className='w-px h-6 bg-ui-overlay transition-colors duration-150 ease-in-out' />
+
         <button type='button' className={button.base}>
           New task
         </button>
@@ -62,4 +64,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default AppBar

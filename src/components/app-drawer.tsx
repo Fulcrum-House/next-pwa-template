@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import button from '../styles/button.module.css'
+
+type Props = {
+  className?: string
+}
 
 const links = [
   {
@@ -59,36 +62,31 @@ const links = [
   },
 ]
 
-type Props = {
-  className?: string
-}
-
-const BottomNav = ({ className }: Props) => {
+const AppDrawer = ({ className }: Props) => {
   const { pathname } = useRouter()
 
   return (
-    <nav
-      className={`${className} px-6 w-full bg-ui-base border-t flex items-center justify-around fixed bottom-0 transition-colors duration-150 ease-in-out`}
-      style={{
-        paddingBottom: 'env(safe-area-inset-bottom)',
-        height: 'calc(env(safe-area-inset-top) + 4rem)',
-      }}
+    <div
+      className={`${className} mt-20 p-6 w-64 h-full text-fg bg-ui-base border-r fixed left-0 transparent-colors duration-150 ease-in-out`}
     >
-      {links.map((link) => (
-        <Link href={link.href} key={link.title}>
-          <a
-            title={link.title}
-            aria-label={link.title}
-            className={`${button.icon} ${
-              pathname === link.href ? 'text-primary hover:text-primary' : null
-            }`}
-          >
-            {link.icon}
-          </a>
-        </Link>
-      ))}
-    </nav>
+      <nav className='space-y-1 w-full flex flex-col'>
+        {links.map((link) => (
+          <Link href={link.href}>
+            <a
+              className={`px-3 w-full h-10 leading-none text-sm font-medium rounded-md flex items-center focus:bg-ui-overlay focus:outline-none ${
+                pathname === link.href
+                  ? 'text-inverse hover:text-inverse bg-primary hover:bg-primary'
+                  : 'text-muted hover:text-fg hover:bg-ui-overlay'
+              }
+            `}
+            >
+              {link.title}
+            </a>
+          </Link>
+        ))}
+      </nav>
+    </div>
   )
 }
 
-export default BottomNav
+export default AppDrawer
