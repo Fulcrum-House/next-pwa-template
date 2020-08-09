@@ -19,7 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => (
         name='description'
         content='Leaving a sour taste in your mouth since 1989'
       />
-      <meta name='theme-color' content='#457ef7' />
+      <meta name='theme-color' content='#1f2023' />
       <meta
         name='viewport'
         content='width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover'
