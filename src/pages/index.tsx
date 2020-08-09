@@ -17,7 +17,7 @@ const Index = () => {
         {data.map(({ name, saved }) => (
           <li
             key={name}
-            className='px-3 h-8 leading-none text-sm bg-ui-surface rounded-md flex items-center justify-between'
+            className='px-3 h-8 leading-none text-sm text-fg bg-ui-surface rounded-md flex items-center justify-between transition-colors duration-150 ease-in-out'
           >
             <span>{name}</span>
             <svg
